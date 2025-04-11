@@ -23,6 +23,7 @@ app.use("/api/v1/user", userRouter);
 app.use("/api/v1/auth", authRouter);
 
 main();
+
 async function main() {
   await connectToDb();
   app.listen(PORT, () => {
