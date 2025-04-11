@@ -46,7 +46,7 @@ userRouter.post("/login", async (req: Request, res: Response): Promise<any> => {
   res.cookie("token", token, {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
-    sameSite: "lax",
+    sameSite: "strict",
     maxAge: 7 * 24 * 60 * 60 * 1000, //7 days age
   });
 
@@ -258,7 +258,7 @@ userRouter.post("/logout", (_, res: Response): any => {
   res.clearCookie("token", {
     httpOnly: true,
     secure: true,
-    sameSite: "lax",
+    sameSite: "strict",
   });
 
   return res.status(200).json({ message: "Logged out successfully" });
